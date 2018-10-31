@@ -1,7 +1,12 @@
 ---
 title: Debian(Ubuntu)网络安装/重装系统一键脚本
 date: 2018-06-26 23:19:36
-tags: linux
+tags: 
+        - linux
+        - debian
+        - ubuntu
+categories: 
+        - linux
 ---
 
 > 注意
@@ -25,7 +30,7 @@ yum install -y gawk sed grep
 ``` bash
 #Debian/Ubuntu:
 apt-get update
- 
+
 #RedHat/CentOS:
 yum update
 ```
@@ -82,6 +87,7 @@ bash DebianNET.sh -d wheezy -v i386
 ``` bash
 bash DebianNET.sh -d 7 -v 32
 ```
+
 * 安装Debian 8 x64
 
 ``` bash

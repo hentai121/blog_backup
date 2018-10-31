@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: UerAx的博客
+title: UerAx
 subtitle: 星期五晚上进来的人都有一个原因 ––––– 香香鸡。
 description: 
 author: UerAx
-email: bakahentailolicon@gmail.com
+email: uerax@live.com
 
 
 # URL
@@ -80,7 +80,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: yilia
+theme: gal
 exclude_generator:
 
 # Deployment

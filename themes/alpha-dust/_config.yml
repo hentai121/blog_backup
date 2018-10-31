@@ -1,0 +1,44 @@
+# Logo (Font Awesome Class)
+fa_logo: fa-cube
+
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  About: /
+  Tags: /tags
+  Categories: /categories
+  Contact: /
+
+# Default post title
+default_post_title: UerAx
+
+# Archive Date Format
+archive_date_format: MMM YYYY
+
+# Comments.
+comments:
+  # Disqus comments
+  disqus_shortname: 
+
+# Google Analytics Tracking ID
+google_analytics:
+
+# Social Accounts
+twitter_url: 
+facebook_url: 
+instagram_url: 
+dribble_url: 
+github_url: https://github.com/hentai121
+googleplus_url: 
+behance_url: 
+fivehundredpx_url: 
+email_url: uerax@live.com
+rss_url: \#
+
+# Footer About Text
+footer_about: "Make Websites. Make Magic."
+
+# Footer Copyright Line
+footer_copyright: "@Untitled. All right reserved | Design & Hexo <a href=\"http://www.codeblocq.com/\">Jonathan Klughertz</a>"
+

@@ -4,6 +4,8 @@ date: 2018-10-27 16:42:17
 tags: 
     - java
     - spring
+categories: 
+    - java
 ---
 
 > 环境配置
@@ -63,7 +65,6 @@ ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xml�
 // FileSystemXmlApplicationContext -> 读取工程目录下
 ApplicationContext applicationContext = new FileSystemXmlApplicationContext("xml文件路径");
 ClassName className = (ClassName) applicationContext.getBean("beanId");
-
 ```
 
 > 通过注释实现实例化
@@ -88,7 +89,6 @@ public class className {
     @Resource(name="beanId")
     private ClassName className;
 }
-
 ```
 
 > 使用 Spring 整合 JUnit4 的功能
@@ -109,12 +109,13 @@ public class classTester() {
         className.method();
     }
 }
-
 ```
 
 > Spring AOP
 
 * 需要引入的 jar 包 : Spring 的 aop, aspect 包
+
+### AOP 的配置方法
 
 ``` python
 
@@ -173,5 +174,40 @@ public class AspectClass {
     // 作用：不管目标方法是否发生异常，最终通知都会执行 (类似于finally代码功能)
     // 应用场景 : 释放资源 (关闭文件、 关闭数据库连接、 网络连接、 释放内存对象)
     public void after(JoinPoint joinPoint) {}
+}
+```
+
+### AOP 的注释方法
+
+``` python
+// 需要先在配置文件开启注解的 AOP 开发
+<aop:aspectj-autoproxy/>
+
+// 在切面类上添加
+@Aspect
+public void AspectClass {
+    // 前置通知
+    @Before("execution(* *.className.method(..))")
+    public void before() {}
+
+    // 后置通知
+    // Object 声名的变量必须与注释配置的 returning 一致
+    @AfterReturning(value="execution(* *.className.method(..))", returning="result")
+    public void afterReturning(Object result) {}
+
+    // 环绕通知
+    @Around(value="execution(* *.className.method(..))")
+    public void around(ProceedingJoinPoint joinPoint) throws Throwable {}
+
+    // 异常抛出通知
+    @AfterThrowing(value="execution()")
+
+    // 最终通知
+    @After(value="AspectClass.pointcut()", throwing="e")
+
+    // 配置切入点
+    // 直接用 className.pointcut() 选择该切入点
+    @Pointcut("execution()")
+    private void pointcut() {}
 }
 ```

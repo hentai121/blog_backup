@@ -3,6 +3,8 @@ title: Git学习
 date: 2018-10-15 00:58:23
 tags:
     - git
+categories: 
+    - note
 ---
 
 > Login
@@ -11,6 +13,7 @@ tags:
 git config --global user.name "username"
 git config --global email.name "email"
 ```
+
 > 初始化一个Git仓库
 
 ```bash
@@ -21,6 +24,7 @@ git init
 //GitHub创建库后clone
 git clone <URL>
 ```
+
 > 添加文件到Git仓库
 
 ```bash
@@ -119,6 +123,7 @@ git branch -d <branch-name>
 //如果当前分支还未合并则需要-D参数强行删除
 git branch -D <branch-name>
 ```
+
 > 工作暂存
 
 ```bash
@@ -164,7 +169,7 @@ git push origin <tag-name>
 
 > 创建别名
 
-```bash
+``` python
 //将命令名用一个<new-name>代替作为别名
 //--global参数使该命令作用在当前用户, 如不加则只针对当前仓库
 git config --global alias.<new-name> 'old-name'
@@ -178,20 +183,19 @@ git config --global alias.<new-name> 'old-name'
 
 > 忽略特殊文件
 
-
 Git为我们提供了.gitignore文件，此文件专门来做忽略，只要在此文件中设置你想忽略的内容就可以了。
 不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。
 所有配置文件可以直接在线浏览：https://github.com/github/gitignore
 
 如希望.gitignore文件作用于所有工作目录, 不希望每次都要在工作目录添加.gitignore文件
 
-```
+``` python
 在用户文件夹下创建.gitconfig_global并写入规则
 如果无法创建空文件名
 直接创建 .gitignore_global. 文件, 系统提示"如果改变文件扩展名，可能会导致文件不可用。确实要更改吗？"选择确定即可
 ```
 
-```bash
+``` python
 在用户文件夹(Users/用户名/)下修改.gitconfig配置, 在[core]下添加
 excludesfile = 用户文件夹\\.gitconfig_global
 
