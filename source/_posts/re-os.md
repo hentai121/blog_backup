@@ -12,8 +12,8 @@ categories:
 > 注意
 
 1. 全自动安装默认root密码:Vicer,安装完成后请立即更改密码
-1. 请使用 passwd root 命令更改密码
-1. OpenVZ构架不适用
+2. 请使用 passwd root 命令更改密码
+3. OpenVZ构架不适用
 
 > 确保安装了所需软件
 

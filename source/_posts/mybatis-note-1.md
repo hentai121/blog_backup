@@ -1,20 +1,38 @@
 ---
-title: MyBatis学习笔记(1)
+title: MyBatis 学习笔记(1)
 date: 2018-10-30 15:37:39
 tags:
     - mybatis
     - java
 categories: 
-    - java
     - note
 ---
 
-## 配置环境
+* [配置环境](#environment)
+* [核心配置文件](#mainmapper)
+* [映射文件](#mapper)
+* [别名](#alias)
+
+## <h2 id="environment">配置环境</h2>
 
 * 基础 jar 包 : MyBatis 自带所有 jar 包
 * 编写数据库的 JAVA 类并提供 GET / Set 方法
 
-### 配置文件编写
+``` python
+// 配置文件依赖
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+// 映射文件依赖
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+```
+
+### <h2 id="mainmapper">配置文件编写</h2>
 
 ``` python
 <configuration>
@@ -41,7 +59,7 @@ categories:
 </configuration>
 ```
 
-### 映射文件编写
+### <h2 id="mapper">映射文件 Mapper 编写</h2>
 
 ``` python
 <!-- namespace 用于隔离 sql 语句 -->
@@ -97,7 +115,7 @@ List<Student> list = selectList();
 // 执行插入
 Student student = new Student();
 ss.insert("student.insertStudent", student);
-// 必须执行 commit 提交才能成功插入
+// 执行 commit 提交才能成功插入, 或者在openSession(true) 传入 true
 ss.commit();
 
 // 执行修改, 删除
@@ -105,7 +123,53 @@ ss.commit();
 Student stu = new Student();
 ss.update("student.updateStudent", stu);
 ss.delete("student.deleteStudent", 1);
-// 必须执行 commit 提交才能成功插入
+// 执行 commit 提交才能成功执行, 或者在openSession(true) 传入 true
 ss.commit();
 ss.close();
+```
+
+### 动态开发代理
+
+``` python
+<!-- namespace 是接口的全路径名 
+	接口方法名必须与 sql id一致 
+	接口的入参必须与 parameterType 类型一致 
+	接口的返回值必须与 resultType 类型一致 -->
+<mapper namespace="com.uerax.mybatis.mapper.StudentMapper">
+    // 和上方写法一致
+</mapper>
+
+// StudentMapper 是一个接口, 只要遵守上方四条规则底层会自动帮我们实现
+public interface StudentMapper {
+    Student getStudentByI(Integer id);
+    List<Student> getStudent();
+    void insertStudent(Student stu);
+}
+
+// 调用时需要获取映射
+SqlSession.getMapper(StudentMapper.class);
+```
+
+### <h2 id="alias">别名设置</h2>
+
+``` python
+<typeAliases>
+    <!-- 单个别名定义, 不区分大小写 -->
+    <typeAlias type="com.uerax.mybatis.domain.Student" alias="student" />
+
+    <!-- 包扫描器, 别名是类的全称,不区分大小写 -->
+    <package name="com.uerax.mybatis.domain"/>
+</typeAliases>
+```
+
+### 映射文件加载方法
+
+``` python
+<mappers>
+    <mapper resource="url" />
+    // 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致
+    <mapper class="package.mapperName" />
+    / 包扫描, 接口文件必须与映射文件在同一目录下, 接口文件必须与映射文件名称一致
+    <package name="package" />
+</mappers>
 ```

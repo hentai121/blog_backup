@@ -9,25 +9,20 @@ categories:
 
 > Login
 
-```bash
+``` python
 git config --global user.name "username"
 git config --global email.name "email"
 ```
 
 > 初始化一个Git仓库
 
-```bash
+``` python
 git init
-```
-
-```bash
-//GitHub创建库后clone
-git clone <URL>
 ```
 
 > 添加文件到Git仓库
 
-```bash
+``` python
 //可以用git add .直接将所有文件放入暂存区
 git add <file-name>
 
@@ -37,7 +32,7 @@ git commit -m "本次提交的说明"
 
 > 获取工作区的状态
 
-```bash
+``` python
 //查看是否有文件进行修改
 git status
 
@@ -47,7 +42,7 @@ git diff
 
 > 版本控制
 
-```bash
+``` python
 //查看提交日志
 git log
 //
@@ -64,7 +59,7 @@ git reflog
 
 > 撤销修改
 
-```bash
+``` python
 //让文件回到最近一次git add或者git commit的状态
 git checkout -- <file-name>
 
@@ -74,15 +69,16 @@ git reset HEAD -- <file-name>
 
 > 删除文件
 
-```bash
+``` python
 //与git add的用法一样
 //从版本库里中删除文件
 git rm <file-name>
 git commit -m "本次提交的说明"
 ```
+
 > 远程仓库
 
-```bash
+``` python
 //添加远程仓库
 //origin是远程仓库的默认名称可更改
 git remote add origin git@github.com:<github_username>/<repository>
@@ -100,12 +96,11 @@ git branch --set-upstream-to <branch-name> origin/<branch-name>
 
 //查看远程仓库信息, 添加-v常熟可显示更详细信息
 git remote
-
 ```
 
 > 分支
 
-```bash
+``` python
 //创建分支, 并且切换到该分支
 git branch <branch-name>
 git checkout <branch-name>
@@ -126,7 +121,7 @@ git branch -D <branch-name>
 
 > 工作暂存
 
-```bash
+``` python
 //将未提交的修改（包括暂存的和非暂存的）都保存起来
 git stash
 //推荐使用可添加说明方法
@@ -143,12 +138,11 @@ git stash pop
 
 //查看现有的stash
 git stash list
-
 ```
 
 > 标签
 
-```bash
+``` python
 //新建一个标签，不写<commit-id>则默认为HEAD
 git tag <tag-name> <commit-id>
 //可以用参数-a指定标签名，-m指定说明文字
@@ -164,7 +158,6 @@ git push origin :refs/tags/<tag-name>
 
 //将标签推送到远程仓库, 可以用--tags参数代替<tag-name>直接将所有标签推送到远程仓库
 git push origin <tag-name>
-
 ```
 
 > 创建别名
@@ -183,24 +176,14 @@ git config --global alias.<new-name> 'old-name'
 
 > 忽略特殊文件
 
+``` python
 Git为我们提供了.gitignore文件，此文件专门来做忽略，只要在此文件中设置你想忽略的内容就可以了。
 不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。
 所有配置文件可以直接在线浏览：https://github.com/github/gitignore
-
-如希望.gitignore文件作用于所有工作目录, 不希望每次都要在工作目录添加.gitignore文件
-
-``` python
-在用户文件夹下创建.gitconfig_global并写入规则
-如果无法创建空文件名
-直接创建 .gitignore_global. 文件, 系统提示"如果改变文件扩展名，可能会导致文件不可用。确实要更改吗？"选择确定即可
 ```
 
+> 下载远程仓库
+
 ``` python
-在用户文件夹(Users/用户名/)下修改.gitconfig配置, 在[core]下添加
-excludesfile = 用户文件夹\\.gitconfig_global
-
-也可以使用Git命令进行设置
-git config --global core.excludesfile ~/.gitconfig_global
-
-最后可以通过git config --list查看是否设置成功
+git clone <URL>
 ```

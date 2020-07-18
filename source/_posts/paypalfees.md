@@ -3,6 +3,8 @@ title: PayPal 更换汇率结算
 date: 2018-06-26 22:27:45
 tags: 
     - paypal
+categories: 
+    - others
 ---
 
 > 点击右上角齿轮

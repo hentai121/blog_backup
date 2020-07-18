@@ -1,18 +1,23 @@
 ---
-title: Spring学习笔记(1)
+title: Spring 学习笔记(1)
 date: 2018-10-27 16:42:17
 tags: 
     - java
     - spring
 categories: 
-    - java
+    - note
 ---
 
-> 环境配置
+* [环境配置](#environment)
+* [bean](#bean)
+* [注释方法](#annotation)
+* [AOP](#aop)
+
+### <h2 id="environment">环境配置</h2>
 
 * 基础 jar 包 : Spring 自带的 beans, core, context, expression 包另外还需要 log4j 和 commons-logging 两个日志包
 
-> bean 标签来完成实例化
+### <h2 id="bean">bean 标签来完成实例化</h2>
 
 ``` python
 // 需要添加 xml 的 bean 约束用 Eclipse 的 Spring tools 插件自动生成
@@ -67,7 +72,7 @@ ApplicationContext applicationContext = new FileSystemXmlApplicationContext("xml
 ClassName className = (ClassName) applicationContext.getBean("beanId");
 ```
 
-> 通过注释实现实例化
+### <h2 id="annotation">通过注释实现实例化</h2>
 
 ``` python
 // 需要添加 xml 的 context 约束用 Eclipse 的 Spring tools 插件自动生成
@@ -91,7 +96,7 @@ public class className {
 }
 ```
 
-> 使用 Spring 整合 JUnit4 的功能
+### 使用 Spring 整合 JUnit4 的功能
 
 * 需要引入的 jar 包 : Spring 的 Test 包
 
@@ -111,11 +116,11 @@ public class classTester() {
 }
 ```
 
-> Spring AOP
+### <h2 id="aop">Spring AOP</h2>
 
 * 需要引入的 jar 包 : Spring 的 aop, aspect 包
 
-### AOP 的配置方法
+#### AOP 的配置方法
 
 ``` python
 
@@ -177,7 +182,7 @@ public class AspectClass {
 }
 ```
 
-### AOP 的注释方法
+#### AOP 的注释方法
 
 ``` python
 // 需要先在配置文件开启注解的 AOP 开发

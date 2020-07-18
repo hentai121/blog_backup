@@ -1,14 +1,19 @@
 ---
-title: Spring学习笔记(2)
+title: Spring 学习笔记(2)
 date: 2018-10-28 16:18:54
 tags:
     - java
     - spring
 categories: 
-    - java
+    - note
 ---
 
-> Spring JDBC
+* [JDBC](#jdbc)
+    * [DBCP](#dbcp)
+    * [C3P0](#c3p0)
+* [事务管理](#tx)
+
+### <h2 id="jdbc">Spring JDBC</h2>
 
 * 需要引入的 jar 包 : Spring 的 JDBC , tx , aop 的包和数据库驱动的包
 
@@ -35,7 +40,7 @@ jdbcTemplate.update("sql", args);
 String str = jdbcTemplate.queryForObject("sql", String.class, args)
 ```
 
-### 使用开源连接池 DBCP 连接池
+#### <h2 id="dbcp">使用开源连接池 DBCP 连接池</h2>
 
 * 需要引入的 jar 包 : apache 的 dbcp , pool 包
 
@@ -49,7 +54,7 @@ String str = jdbcTemplate.queryForObject("sql", String.class, args)
 </bean>
 ```
 
-### 使用 C3P0 连接池
+#### <h2 id="c3p0">使用 C3P0 连接池</h2>
 
 * 需要引入的 jar 包 : c3p0 的 c3p0 , mchange-commons 包
 
@@ -75,9 +80,9 @@ driverClass=com.mysql.jdbc.Driver
 <property name="" value="${key}">
 ```
 
-> Spring 事务管理
+### <h2 id="tx">Spring 事务管理</h2>
 
-### 声明式事务
+#### 声明式事务
 
 * 通过配置实现
 * 需要引入的 jar 包 : AOP 所需要的全部包

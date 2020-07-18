@@ -4,6 +4,8 @@ date: 2018-06-27 14:16:24
 tags: 
     - bbr
     - linux
+categories: 
+    - linux
 ---
 
 > 本脚本适用环境

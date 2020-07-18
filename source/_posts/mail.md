@@ -1,8 +1,10 @@
 ---
-title: 如何申请msn.com、live.com、live.cn等后缀邮箱
+title: (已失效)如何申请msn.com、live.com、live.cn等后缀邮箱
 date: 2018-06-27 02:20:23
 tags: 
     - email
+categories: 
+    - others
 ---
 
 > 登录邮箱
